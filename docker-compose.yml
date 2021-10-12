@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8066
+    volumes:
+      - .:/django
+    ports:
+      - "8066:8066"
+    container_name: telusko
+
+
+networks:
+  default:
+    external:
+      name: nginxproxymanager_default
