@@ -2,14 +2,16 @@ version: '3'
 
 services:
   web:
-    build: .
-    command: python manage.py runserver 0.0.0.0:8066
+    build: .  # Buildujeme current folder
+    command: python manage.py runserver 0.0.0.0:8066    # Je jedno jaký port
     volumes:
-      - .:/django
+      - web_data:/mojedata/
     ports:
       - "8066:8066"
     container_name: telusko
 
+volumes:
+  web_data:
 
 networks:
   default:
